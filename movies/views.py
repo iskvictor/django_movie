@@ -20,6 +20,7 @@ class MoviesView(GenreYear, ListView):
     model = Movie
     queryset = Movie.objects.filter(draft=False)
     paginate_by = 1
+    ordering =["title"]
 
 class MovieDetailView(GenreYear, DetailView):
 
