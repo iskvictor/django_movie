@@ -24,11 +24,12 @@ from django.utils.translation import ugettext_lazy as _
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('ckeditor/', include('ckeditor_uploader.urls')),
-    path('i18n/', include('django.conf.urls.i18n'))
+    path('i18n/', include('django.conf.urls.i18n')),
     
-]  + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
-
+    
+]  
 urlpatterns += i18n_patterns(
+    path('accounts/', include('allauth.urls')),
     path('pages/', include('django.contrib.flatpages.urls')),
     path('contact/', include('contact.urls')),
     path('', include('movies.urls')),
